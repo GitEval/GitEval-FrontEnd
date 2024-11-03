@@ -30,7 +30,7 @@ jobs:
         with:
           # 指定 Node.js 的版本为 20.15.1
           node-version: 20.15.1
-          cache: 'pnpm'
+          cache: 'npm'
       - name: Install pnpm
         run: npm install -g pnpm
       - name: Install dependencies
