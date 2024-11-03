@@ -30,7 +30,7 @@ jobs:
         with:
           # 指定 Node.js 的版本为 18.16.1
           node-version: 18.16.1
-          cache: 'npm'
+          cache: 'pnpm'
       - name: Install dependencies
         # 使用 yarn 来安装依赖包
         run: pnpm install
