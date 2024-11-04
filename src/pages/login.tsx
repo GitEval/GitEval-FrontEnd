@@ -8,6 +8,8 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
+import { get } from '@/fetch';
+import { ResponseLogin } from '@/type';
 
 function Login() {
   const handleGithub = () => {
@@ -15,11 +17,15 @@ function Login() {
     // localStorage.setItem("state", state.toString());
     window.open(
       `https://github.com/login/oauth/authorize?client_id=Ov23linmpwhcW9E53dNb&redirect_uri=http://localhost:5173/home`,
-      "_blank"
+      '_blank',
     );
-    const code = new URLSearchParams(window.location.search).get("code")||'';
+    const code = new URLSearchParams(window.location.search).get('code') || '';
+    get<ResponseLogin>('/api/v1/auth/login?code=' + code).then((res) => {
+      //console.log(res.Data?.user_id)
+      localStorage.setItem('user_id', res.Data.user_id.toString());
+    });
     
-  }
+  };
   return (
     <div className="flex items-center justify-center w-full min-h-screen p-6">
       <div className="grid gap-6 w-full max-w-sm">
