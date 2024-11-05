@@ -1,5 +1,5 @@
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
 
 export function Search() {
   return (
@@ -7,5 +7,5 @@ export function Search() {
       <Input type="text" placeholder="Search" />
       <Button type="submit">Search</Button>
     </div>
-  )
+  );
 }

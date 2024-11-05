@@ -17,10 +17,7 @@ const Rank: React.FC<LeaderboardProps> = ({ data, itemsPerPage = 5 }) => {
 
   const totalPages = Math.ceil(data.length / itemsPerPage);
 
-  const paginatedData = data.slice(
-    (currentPage - 1) * itemsPerPage,
-    currentPage * itemsPerPage
-  );
+  const paginatedData = data.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
 
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
@@ -42,11 +39,7 @@ const Rank: React.FC<LeaderboardProps> = ({ data, itemsPerPage = 5 }) => {
           {paginatedData.map((user, index) => (
             <tr key={index} className="hover:bg-gray-100">
               <td className="p-2 border-b">
-                <img
-                  src={user.avatar}
-                  alt={user.name}
-                  className="w-10 h-10 rounded-full"
-                />
+                <img src={user.avatar} alt={user.name} className="w-10 h-10 rounded-full" />
               </td>
               <td className="p-2 border-b">{user.name}</td>
               <td className="p-2 border-b">{user.email}</td>
