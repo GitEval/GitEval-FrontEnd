@@ -13,16 +13,14 @@ import { ResponseLogin } from '@/type';
 
 function Login() {
   const handleGithub = () => {
-    // const state = Math.floor(Math.random() * Math.pow(10, 8));
-    // localStorage.setItem("state", state.toString());
     window.open(
       `https://github.com/login/oauth/authorize?client_id=Ov23linmpwhcW9E53dNb&redirect_uri=http://localhost:5173/home`,
       '_blank',
     );
     const code = new URLSearchParams(window.location.search).get('code') || '';
-    get<ResponseLogin>('/api/v1/auth/login?code=' + code).then((res) => {
+    get<ResponseLogin>('/api/v1/auth/login?code=' + code, false).then((res) => {
       //console.log(res.Data?.user_id)
-      localStorage.setItem('user_id', res.Data.user_id.toString());
+      localStorage.setItem('token', res?.data.token || '');
     });
   };
   return (
