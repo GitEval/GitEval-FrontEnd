@@ -24,7 +24,6 @@ function Login() {
       //console.log(res.Data?.user_id)
       localStorage.setItem('user_id', res.Data.user_id.toString());
     });
-    
   };
   return (
     <div className="flex items-center justify-center w-full min-h-screen p-6">

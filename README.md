@@ -60,9 +60,3 @@ $ pnpm install
 ```bash
 $ pnpm run dev
 ```
-
-### 📝 授权
-
-上述文件皆以 MIT 许可授权
-
-> 详细之授权请参考 [LICENSE](LICENSE) 文件

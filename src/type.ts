@@ -1,5 +1,5 @@
 /**
- * response.Success
+ * @给发后端发送获取到的code
  */
 export interface ResponseLogin {
   data?: null;
