@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { BookOpen,  SquareTerminal } from 'lucide-react';
+import { BookOpen, SquareTerminal } from 'lucide-react';
 
 import { NavMain } from '@/components/nav-main';
 //import { NavProjects } from '@/components/nav-projects';
@@ -27,7 +27,7 @@ const data = {
         {
           title: 'Home',
           url: '/Home',
-        }
+        },
       ],
     },
     {
@@ -38,7 +38,7 @@ const data = {
         {
           title: 'Evaluation',
           url: '/Eval',
-        }
+        },
       ],
     },
   ],

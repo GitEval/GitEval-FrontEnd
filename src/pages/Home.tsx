@@ -8,13 +8,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb';
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card';
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { SidebarInset, SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar';
 
@@ -84,7 +78,7 @@ function Home() {
           </header>
           <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
             <div className="min-h-[100vh] flex-1 rounded-xl bg-muted/50 md:min-h-min">
-              <Card className='m-4 w-[50vw]'>
+              <Card className="m-4 w-[50vw]">
                 <CardHeader>
                   <CardTitle>根据大模型预测</CardTitle>
                 </CardHeader>

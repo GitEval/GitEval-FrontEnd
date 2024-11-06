@@ -14,6 +14,6 @@ export const router = createBrowserRouter([
   },
   {
     path: '/Eval',
-    element: <Evaluation/>,
+    element: <Evaluation />,
   },
 ]);
