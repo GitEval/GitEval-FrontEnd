@@ -1,9 +1,7 @@
-const preUrl = 'http://127.0.0.1:4523/m1/5398507-5072149-default';
+const preUrl = 'http://47.92.102.209:8080';
 
 export async function get<T>(url = '', isToken: boolean): Promise<T> {
-  const headers = new Headers({
-    'Content-Type': 'application/json;charset=utf-8',
-  });
+  const headers = new Headers();
   if (isToken) {
     const token = localStorage.getItem('token');
     if (token) headers.append('Authorization', token);
