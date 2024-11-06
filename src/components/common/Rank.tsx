@@ -1,49 +1,43 @@
 import React, { useState } from 'react';
 
-export interface UserInfo {
-  avatar: string;
-  name: string;
-  email: string;
-  score: number;
-}
-
+import { Ranks  } from '@/type';
 interface LeaderboardProps {
-  data: UserInfo[];
+  data?: Ranks[];
   itemsPerPage?: number;
 }
 
-const Rank: React.FC<LeaderboardProps> = ({ data, itemsPerPage = 5 }) => {
+const Rank: React.FC<LeaderboardProps> = ({ data, itemsPerPage = 7}) => {
   const [currentPage, setCurrentPage] = useState(1);
 
-  const totalPages = Math.ceil(data.length / itemsPerPage);
+  const totalPages = Math.ceil(data?.length||0 / itemsPerPage);
 
-  const paginatedData = data.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
+  const paginatedData = data?.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
 
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
   };
 
   return (
-    <div className="p-4 shadow-md rounded-lg bg-white w-[40vw]">
+    <div className="p-4 shadow-md rounded-lg bg-white w-[50vw]">
       <h2 className="text-2xl font-bold mb-4">排行榜</h2>
       <table className="w-full text-left border-collapse">
         <thead>
           <tr>
             <th className="p-2 border-b">头像</th>
             <th className="p-2 border-b">姓名</th>
-            <th className="p-2 border-b">邮箱</th>
+            {/* <th className="p-2 border-b">邮箱</th> */}
             <th className="p-2 border-b">分数</th>
           </tr>
         </thead>
         <tbody>
-          {paginatedData.map((user, index) => (
+          {paginatedData?.map((user, index) => (
             <tr key={index} className="hover:bg-gray-100">
               <td className="p-2 border-b">
-                <img src={user.avatar} alt={user.name} className="w-10 h-10 rounded-full" />
+                <img src={user.avatar_url} alt={user.avatar_url} className="w-10 h-10 rounded-full" />
               </td>
-              <td className="p-2 border-b">{user.name}</td>
-              <td className="p-2 border-b">{user.email}</td>
-              <td className="p-2 border-b">{user.score}</td>
+              <td className="p-2 border-b">{user.user_name}</td>
+              {/* <td className="p-2 border-b">{user.email}</td> */}
+              <td className="p-2 border-b">{user.score?.toFixed(2)}</td>
             </tr>
           ))}
         </tbody>
