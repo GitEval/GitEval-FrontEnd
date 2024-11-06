@@ -35,7 +35,7 @@ export function NavUser() {
     score: 0,
   });
   const handleUser = () => {
-    get<ResponseUserInfo>('/api/v1/user/getUserInfo', true).then((res) => {
+    get<ResponseUserInfo>('/api/v1/user/getInfo', true).then((res) => {
       setUser(res.data.user);
     });
   };

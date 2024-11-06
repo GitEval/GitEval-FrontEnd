@@ -4,6 +4,7 @@ export async function get<T>(url = '', isToken: boolean): Promise<T> {
   const headers = new Headers();
   if (isToken) {
     const token = localStorage.getItem('token');
+    console.log(token);
     if (token) headers.append('Authorization', token);
   }
 

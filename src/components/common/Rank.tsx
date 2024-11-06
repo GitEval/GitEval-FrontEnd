@@ -54,9 +54,9 @@ const Rank: React.FC<LeaderboardProps> = ({ data, itemsPerPage = 6 }) => {
         >
           上一页
         </button>
-        <span>
+        {/* <span>
           页码 {currentPage} / {totalPages}
-        </span>
+        </span> */}
         <button
           onClick={() => handlePageChange(currentPage + 1)}
           disabled={currentPage === totalPages}

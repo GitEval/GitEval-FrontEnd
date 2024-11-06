@@ -1,5 +1,6 @@
 import { AppSidebar } from '@/components/app-sidebar';
 import Rank from '@/components/common/Rank';
+import SearchBar from '@/components/common/SearchBar';
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -32,12 +33,12 @@ function Home() {
     score: 0,
   });
   const handleUser = () => {
-    get<ResponseUserInfo>('/api/v1/user/getUserInfo', true).then((res) => {
+    get<ResponseUserInfo>('/api/v1/user/getInfo', true).then((res) => {
       setUser(res.data.user);
     });
   };
   const handleDomain = () => {
-    get<ResponseUserInfo>('/api/v1/user/getUserInfo', true).then((res) => {
+    get<ResponseUserInfo>('/api/v1/user/getInfo', true).then((res) => {
       setDomain(res.data.domain);
     });
   };
@@ -77,19 +78,22 @@ function Home() {
             </div>
           </header>
           <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
-            <div className="min-h-[100vh] flex-1 rounded-xl bg-muted/50 md:min-h-min">
-              <Card className="m-4 w-[50vw]">
-                <CardHeader>
-                  <CardTitle>根据大模型预测</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p>领域:{domain}</p>
-                </CardContent>
-                <CardFooter>
-                  <p>地区{user.nationality}</p>
-                </CardFooter>
-              </Card>
-              <Rank data={rank}></Rank>
+            <div className="min-h-[100vh] flex-1 rounded-xl bg-muted/50 md:min-h-min flex">
+              <div>
+                <Card className="m-4 w-[50vw]">
+                  <CardHeader>
+                    <CardTitle>根据大模型预测</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p>领域:{domain}</p>
+                  </CardContent>
+                  <CardFooter>
+                    <p>地区{user.nationality}</p>
+                  </CardFooter>
+                </Card>
+                <Rank data={rank}></Rank>
+              </div>
+              <SearchBar></SearchBar>
             </div>
           </div>
         </SidebarInset>
