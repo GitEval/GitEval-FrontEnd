@@ -78,8 +78,8 @@ export default function SearchBar() {
         {results.length > 0 ? (
           <ul className="space-y-2">
             {results.map((result, index) => (
-              <li key={index} className="text-gray-700 m-auto">
-                <tr key={index} className="hover:bg-gray-100">
+              <li key={index} className="text-gray-700 w-[20vw]">
+                <tr key={index} className="hover:bg-gray-100 w-[20vw]">
                   <td className="p-2 border-b">
                     <img
                       src={result.avatar_url}
@@ -88,7 +88,7 @@ export default function SearchBar() {
                     />
                   </td>
                   <td className="p-2 border-b">{result.name}</td>
-                  {/* <td className="p-2 border-b">{user.email}</td> */}
+                  {/* <td className="p-2 border-b">{result.email}</td> */}
                   <td className="p-2 border-b">{result.score?.toFixed(1)}</td>
                 </tr>
               </li>
