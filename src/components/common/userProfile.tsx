@@ -25,7 +25,7 @@ type GithubProfileProps = {
 
 const UserProfile: React.FC<GithubProfileProps> = ({ user }) => {
   return (
-    <Card className="max-w-md my-auto bg-white shadow-md rounded-lg border border-gray-200">
+    <Card className="max-w-md my-auto bg-white shadow-md rounded-lg border border-gray-200 m-2">
       <CardHeader className="flex flex-col items-center py-6">
         <Avatar className="w-24 h-24 rounded-full">
           <AvatarImage src={user.avatar_url} alt={user.avatar_url} />

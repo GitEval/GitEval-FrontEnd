@@ -120,3 +120,17 @@ export interface UserInfo {
    */
   total_private_repos?: number;
 }
+/**
+ * response.Success -Eval
+ */
+export interface ResponseEval {
+  data: ResponseEvaluationResp;
+  msg?: string;
+}
+
+/**
+ * response.EvaluationResp
+ */
+export interface ResponseEvaluationResp {
+  evaluation: string;
+}
