@@ -1,9 +1,5 @@
 import * as React from 'react';
-import {
-  BookOpen,
-  Bot,
-  SquareTerminal,
-} from 'lucide-react';
+import { BookOpen,  SquareTerminal } from 'lucide-react';
 
 import { NavMain } from '@/components/nav-main';
 //import { NavProjects } from '@/components/nav-projects';
@@ -25,38 +21,26 @@ const data = {
   navMain: [
     {
       title: 'Playground',
-      url: '#',
+      url: '/Home',
       icon: SquareTerminal,
-      isActive: true,
-    },
-    {
-      title: 'Models',
-      url: '#',
-      icon: Bot,
+      items: [
+        {
+          title: 'Home',
+          url: '/Home',
+        }
+      ],
     },
     {
       title: 'Documentation',
-      url: '#',
+      url: '/Eval',
       icon: BookOpen,
       items: [
         {
-          title: 'Introduction',
-          url: '#',
-        },
-        {
-          title: 'Get Started',
-          url: '#',
-        },
-        {
-          title: 'Tutorials',
-          url: '#',
-        },
-        {
-          title: 'Changelog',
-          url: '#',
-        },
+          title: 'Evaluation',
+          url: '/Eval',
+        }
       ],
-    }
+    },
   ],
 };
 
@@ -68,7 +52,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         <NavMain items={data.navMain} />
       </SidebarContent>
       <SidebarFooter>
-        <NavUser user={data.user} />
+        <NavUser />
       </SidebarFooter>
       <SidebarRail />
     </Sidebar>

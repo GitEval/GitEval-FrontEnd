@@ -19,18 +19,27 @@ import {
   useSidebar,
 } from '@/components/ui/sidebar';
 import { CaretSortIcon, ComponentPlaceholderIcon } from '@radix-ui/react-icons';
+import { useEffect, useState } from 'react';
+import { ResponseUserInfo, UserInfo } from '@/type';
+import { get } from '@/fetch';
 
-export function NavUser({
-  user,
-}: {
-  user: {
-    name: string;
-    email: string;
-    avatar: string;
-  };
-}) {
+export function NavUser() {
+  useEffect(() => {
+    handleUser();
+  }, []);
   const { isMobile } = useSidebar();
-
+  const [user, setUser] = useState<UserInfo>({
+    avatar_url: '',
+    email: '',
+    name: '',
+    score: 0,
+  });
+  const handleUser = () => {
+    get<ResponseUserInfo>('/api/v1/user/getUserInfo', true).then((res) => {
+      setUser(res.data.user);
+    });
+  };
+  localStorage.setItem('userInfo', JSON.stringify(user));
   return (
     <SidebarMenu>
       <SidebarMenuItem>
@@ -41,7 +50,7 @@ export function NavUser({
               className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
             >
               <Avatar className="h-8 w-8 rounded-lg">
-                <AvatarImage src={user.avatar} alt={user.name} />
+                <AvatarImage src={user.avatar_url} alt={user.avatar_url} />
                 <AvatarFallback className="rounded-lg">CN</AvatarFallback>
               </Avatar>
               <div className="grid flex-1 text-left text-sm leading-tight">
@@ -60,7 +69,7 @@ export function NavUser({
             <DropdownMenuLabel className="p-0 font-normal">
               <div className="flex items-center gap-2 px-1 py-1.5 text-left text-sm">
                 <Avatar className="h-8 w-8 rounded-lg">
-                  <AvatarImage src={user.avatar} alt={user.name} />
+                  <AvatarImage src={user.avatar_url} alt={user.name} />
                   <AvatarFallback className="rounded-lg">CN</AvatarFallback>
                 </Avatar>
                 <div className="grid flex-1 text-left text-sm leading-tight">
