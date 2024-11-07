@@ -1,13 +1,6 @@
 import GithubIcon from '@/components/common/githubIcon';
 import { Button } from '@/components/ui/button';
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card';
+import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 // import { get } from '@/fetch';
 // import { ResponseLogin } from '@/type';
 
@@ -22,11 +15,8 @@ function Login() {
         <Card>
           <CardHeader>
             <CardTitle>GitEval</CardTitle>
-            <CardDescription>描述描述描述描述</CardDescription>
+            <CardDescription>超级无敌的github排行榜</CardDescription>
           </CardHeader>
-          <CardContent>
-            <p>内容内容内容内容内容</p>
-          </CardContent>
           <CardFooter>
             <Button className="w-full inline-flex gap-4" onClick={test}>
               <GithubIcon className="h-4 w-4" />
