@@ -1,11 +1,21 @@
+# 使用 Node.js 20.15.1 作为基础镜像
 FROM node:20.15.1
-# Create app directory
+
+# 创建应用目录
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
+
+# 复制所有文件到容器内
 COPY . /usr/src/app
-# Build server file
-RUN pnpm config set registry https://registry.npm.taobao.org/
+
+# 安装 pnpm（全局）
+RUN npm install -g pnpm
+
+# 安装项目依赖
 RUN pnpm install
-# Bundle app source
-EXPOSE 3000
-CMD [ "pnpm", "start" ]
+
+# 暴露端口
+EXPOSE 5173
+
+# 启动应用
+CMD [ "pnpm", "run" ,"dev"]
