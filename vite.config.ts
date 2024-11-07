@@ -10,8 +10,8 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
     },
   },
-  server: {
-    host: '47.92.102.209', // 允许外部访问
-    port: 5173,       // 指定端口号（可选）
-  },
+  // server: {
+  //   host: '47.92.102.209', // 允许外部访问
+  //   port: 5173, // 指定端口号（可选）
+  // },
 });

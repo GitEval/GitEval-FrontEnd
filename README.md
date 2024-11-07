@@ -1,6 +1,6 @@
 <div align="center">
   <h1 align="center">GitEval-FrontEnd</h1>
-  <a href="https://github.com/GitEval/GitEval-FrontEnd"><strong>探索项目文档 »</strong></a>
+  <a href="https://github.com/GitEval/GitEval-Instructions"><strong>探索项目文档 »</strong></a>
   <br />
   <br />
 
