@@ -1,23 +1,23 @@
+# 使用 Node.js 20.15.1 作为基础镜像
 FROM node:20.15.1
 
-# 安装 pnpm
-RUN npm install -g pnpm
-
-# 创建应用目录
-RUN mkdir -p /usr/src/app
+# 创建工作目录
 WORKDIR /usr/src/app
 
-# 复制项目文件
-COPY . /usr/src/app
+# 复制依赖文件
+COPY package.json pnpm-lock.yaml* ./
 
-# 设置淘宝的 pnpm registry
-RUN pnpm config set registry https://registry.npm.taobao.org/
+# 安装 pnpm（全局）
+RUN npm install -g pnpm
 
-# 安装依赖
+# 安装项目依赖
 RUN pnpm install
 
-# 暴露 Vite 默认端口
+# 复制项目的其他文件
+COPY . .
+
+# 暴露端口
 EXPOSE 5173
 
-# 启动 Vite 开发服务器
+# 启动应用
 CMD ["pnpm", "dev"]
